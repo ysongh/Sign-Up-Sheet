@@ -1,13 +1,25 @@
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { ChakraProvider, Text } from '@chakra-ui/react';
 
 import './App.css';
 
 function App() {
-
   return (
     <ChakraProvider>
-      <h1>Sign Up Sheet</h1>
-      <Text>Test</Text>
+      <HashRouter>
+        <Routes>
+          <Route
+            path="/test"
+            element={
+              <>
+                <h1>Test</h1>
+              </>} />
+          <Route
+            path="/"
+            element={
+              <Text>Home</Text>} />
+        </Routes>
+      </HashRouter>
     </ChakraProvider>
   )
 }
