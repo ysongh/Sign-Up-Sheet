@@ -2,6 +2,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import { ChakraProvider, Text } from '@chakra-ui/react';
 
 import './App.css';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <Route
             path="/"
             element={
-              <Text>Home</Text>} />
+              <SignUp /> } />
         </Routes>
       </HashRouter>
     </ChakraProvider>
