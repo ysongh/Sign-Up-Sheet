@@ -1,7 +1,6 @@
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import { ChakraProvider, Text } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 
-import './App.css';
 import Navbar from './components/layout/Navbar';
 import SignUp from './pages/SignUp';
 
