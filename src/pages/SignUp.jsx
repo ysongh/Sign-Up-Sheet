@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Grid, GridItem, Heading } from '@chakra-ui/react';
+import { Container, Box, Grid, GridItem, Heading } from '@chakra-ui/react';
 
 const SignUp = () => {
   const [data, setData] = useState([
@@ -15,7 +15,7 @@ const SignUp = () => {
   };
 
   return (
-    <>
+    <Container>
       <Heading mb="5">Sign Up</Heading>
       <Grid templateColumns="repeat(auto-fill, minmax(100px, 1fr))" gap={1}>
         {data.map((row, rowIndex) => (
@@ -35,7 +35,7 @@ const SignUp = () => {
           ))
         ))}
       </Grid>
-    </>
+    </Container>
   );
 };
 
