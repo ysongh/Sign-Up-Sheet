@@ -3,6 +3,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 import Navbar from './components/layout/Navbar';
 import SignUp from './pages/SignUp';
+import SignupForm from './pages/SignupForm';
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
               <>
                 <h1>Test</h1>
               </>} />
+          <Route
+            path="/form"
+            element={
+              <SignupForm /> } />
           <Route
             path="/"
             element={
