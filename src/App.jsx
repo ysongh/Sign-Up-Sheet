@@ -4,6 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import Navbar from './components/layout/Navbar';
 import SignUp from './pages/SignUp';
 import SignupForm from './pages/SignupForm';
+import SignUpList from './pages/SignUpList';
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
           <Route
             path="/"
             element={
-              <SignUp /> } />
+              <SignUpList /> } />
         </Routes>
       </HashRouter>
     </ChakraProvider>
