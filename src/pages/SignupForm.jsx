@@ -12,6 +12,7 @@ import {
 
 const SignupForm = () => {
   const [title, setTitle] = useState();
+  const [description, setDescription] = useState('');
 
   return (
     <Container>
@@ -25,9 +26,18 @@ const SignupForm = () => {
               <FormLabel>Title</FormLabel>
               <Input
                 type="text"
-                name="firstName"
+                name="title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+              />
+            </FormControl>
+            <FormControl isRequired>
+              <FormLabel>Description</FormLabel>
+              <Input
+                type="text"
+                name="description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
               />
             </FormControl>
             <Button colorScheme="blue">
