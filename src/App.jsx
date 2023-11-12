@@ -23,6 +23,10 @@ function App() {
             element={
               <SignupForm /> } />
           <Route
+            path="/signup/:id"
+            element={
+              <SignUp /> } />
+          <Route
             path="/"
             element={
               <SignUpList /> } />

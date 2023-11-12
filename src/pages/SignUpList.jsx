@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Box, Button, Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
 
 const SignUpList = () => {
+  const navigate = useNavigate();
+
   const data = [
     { id: 1, name: 'Item 1', description: 'Description 1' },
     { id: 2, name: 'Item 2', description: 'Description 2' },
@@ -30,7 +33,7 @@ const SignUpList = () => {
                 <Td>{item.name}</Td>
                 <Td>{item.description}</Td>
                 <Td>
-                  <Button colorScheme="teal" size="sm">
+                  <Button colorScheme="teal" size="sm" onClick={() => navigate("/signup/0")}>
                     See More
                   </Button>
                 </Td>
