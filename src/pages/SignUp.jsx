@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Box, Grid, GridItem, Heading } from '@chakra-ui/react';
+import { Container, Box, Heading } from '@chakra-ui/react';
 
 const SignUp = () => {
   const [data, setData] = useState([
@@ -17,24 +17,24 @@ const SignUp = () => {
   return (
     <Container>
       <Heading mb="5">Sign Up</Heading>
-      <Grid templateColumns="repeat(auto-fill, minmax(100px, 1fr))" gap={1}>
+      <Box flex>
         {data.map((row, rowIndex) => (
           row.map((cell, colIndex) => (
-            <GridItem key={`cell-${rowIndex}-${colIndex}`} borderWidth="1px">
-              <Box
-                p={2}
-                borderBottomWidth="1px"
-                borderRightWidth="1px"
-                contentEditable
-                suppressContentEditableWarning
-                onBlur={(e) => handleCellChange(rowIndex, colIndex, e.target.textContent)}
-              >
-                {cell}
-              </Box>
-            </GridItem>
+            <Box
+              key={`cell-${rowIndex}-${colIndex}`}
+              p={2}
+              mb={2}
+              borderBottomWidth="1px"
+              borderRightWidth="1px"
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={(e) => handleCellChange(rowIndex, colIndex, e.target.textContent)}
+            >
+              {cell}
+            </Box>
           ))
         ))}
-      </Grid>
+      </Box>
     </Container>
   );
 };
