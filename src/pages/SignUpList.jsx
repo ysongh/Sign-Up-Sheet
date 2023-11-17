@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Box, Button, Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
+
+import { connect } from '../supabase';
 
 const SignUpList = () => {
   const navigate = useNavigate();
@@ -10,6 +12,11 @@ const SignUpList = () => {
     { id: 2, name: 'Item 2', description: 'Description 2' },
     { id: 3, name: 'Item 3', description: 'Description 3' },
   ];
+
+  useEffect(() => {
+    connect();
+  }, [])
+  
 
   return (
     <Container>
