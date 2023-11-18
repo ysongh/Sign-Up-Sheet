@@ -9,11 +9,11 @@ export const connect = () => {
   console.log(supabase);
 }
 
-export const addUser = async () => {
+export const addSignUp = async (title, description) => {
   const { data, error } = await supabase
-    .from('Signup')
+    .from('List')
     .insert([
-      { tableid: '0', name: 'Bob' },
+      { title: title, description: description},
     ])
     .select()
   console.log(data);
