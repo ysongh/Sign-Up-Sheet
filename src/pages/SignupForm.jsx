@@ -10,6 +10,8 @@ import {
   VStack,
 } from '@chakra-ui/react';
 
+import { addUser } from '../supabase';
+
 const SignupForm = () => {
   const [title, setTitle] = useState();
   const [description, setDescription] = useState('');
@@ -40,7 +42,7 @@ const SignupForm = () => {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </FormControl>
-            <Button colorScheme="blue">
+            <Button colorScheme="blue" onClick={() => addUser()}>
               Sign Up
             </Button>
           </VStack>

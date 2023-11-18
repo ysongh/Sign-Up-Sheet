@@ -8,3 +8,13 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 export const connect = () => {
   console.log(supabase);
 }
+
+export const addUser = async () => {
+  const { data, error } = await supabase
+    .from('Signup')
+    .insert([
+      { tableid: '0', name: 'Bob' },
+    ])
+    .select()
+  console.log(data);
+}
