@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Box, Button, Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
 
-import { connect } from '../supabase';
+import { getList } from '../supabase';
 
 const SignUpList = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const SignUpList = () => {
   ];
 
   useEffect(() => {
-    connect();
+    getList();
   }, [])
   
 

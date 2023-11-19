@@ -18,3 +18,10 @@ export const addSignUp = async (title, description) => {
     .select()
   console.log(data);
 }
+
+export const getList = async () => {
+  let { data: List, error } = await supabase
+    .from('List')
+    .select('*');
+  console.log(List);
+}
