@@ -23,5 +23,7 @@ export const getList = async () => {
   let { data: List, error } = await supabase
     .from('List')
     .select('*');
-  console.log(List);
+  console.log(List, error);
+  if (error) return [];
+  return List;
 }

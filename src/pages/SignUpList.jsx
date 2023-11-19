@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Box, Button, Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
 
@@ -7,16 +7,16 @@ import { getList } from '../supabase';
 const SignUpList = () => {
   const navigate = useNavigate();
 
-  const data = [
-    { id: 1, name: 'Item 1', description: 'Description 1' },
-    { id: 2, name: 'Item 2', description: 'Description 2' },
-    { id: 3, name: 'Item 3', description: 'Description 3' },
-  ];
+  const [list, setList] = useState([]);
 
   useEffect(() => {
-    getList();
+    fetchList();
   }, [])
-  
+
+  const fetchList = async () => {
+    const newList = await getList();
+    setList(newList);
+  }
 
   return (
     <Container>
@@ -28,16 +28,16 @@ const SignUpList = () => {
           <Thead>
             <Tr>
               <Th>ID</Th>
-              <Th>Name</Th>
+              <Th>Title</Th>
               <Th>Description</Th>
               <Th>Action</Th>
             </Tr>
           </Thead>
           <Tbody>
-            {data.map((item) => (
+            {list.map((item) => (
               <Tr key={item.id}>
                 <Td>{item.id}</Td>
-                <Td>{item.name}</Td>
+                <Td>{item.title}</Td>
                 <Td>{item.description}</Td>
                 <Td>
                   <Button colorScheme="teal" size="sm" onClick={() => navigate("/signup/0")}>
