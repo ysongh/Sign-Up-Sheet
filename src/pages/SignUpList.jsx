@@ -40,7 +40,7 @@ const SignUpList = () => {
                 <Td>{item.title}</Td>
                 <Td>{item.description}</Td>
                 <Td>
-                  <Button colorScheme="teal" size="sm" onClick={() => navigate("/signup/0")}>
+                  <Button colorScheme="teal" size="sm" onClick={() => navigate(`/signup/${item.id}`)}>
                     See More
                   </Button>
                 </Td>

@@ -19,6 +19,16 @@ export const addSignUp = async (title, description) => {
   console.log(data);
 }
 
+export const addName = async (tableID, name) => {
+  const { data, error } = await supabase
+    .from('Signup')
+    .insert([
+      { tableid: tableID, name: name },
+    ])
+    .select()
+  console.log(data);
+}
+
 export const getList = async () => {
   let { data: List, error } = await supabase
     .from('List')
