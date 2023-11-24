@@ -1,7 +1,11 @@
 import { useState } from 'react';
-import { Container, Box, Heading } from '@chakra-ui/react';
+import { useParams } from 'react-router-dom';
+import { Container, Box, Button, Heading } from '@chakra-ui/react';
+
+import { addName } from '../supabase';
 
 const SignUp = () => {
+  const { id } = useParams();
   const [data, setData] = useState(['A1', 'B1', 'C1']);
 
   const handleCellChange = (index, newValue) => {
@@ -29,6 +33,9 @@ const SignUp = () => {
           </Box>
         ))}
       </Box>
+      <Button onClick={() => addName(id, data[data.length - 1])}>
+        Add
+      </Button>
     </Container>
   );
 };
