@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container, Box, Button, Heading } from '@chakra-ui/react';
 
-import { addName } from '../supabase';
+import { getNameByListId, addName } from '../supabase';
 
 const SignUp = () => {
   const { id } = useParams();
   const [data, setData] = useState(['A1', 'B1', 'C1']);
 
+  useEffect(() => {
+    getNameByListId(id);
+  }, [])
+  
   const handleCellChange = (index, newValue) => {
     const newData = [...data];
     newData[index] = newValue;

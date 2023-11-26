@@ -37,3 +37,13 @@ export const getList = async () => {
   if (error) return [];
   return List;
 }
+
+export const getNameByListId = async (tableId) => {
+  let { data: Names, error } = await supabase
+    .from('Signup')
+    .select("*")
+    .eq('tableid', tableId);
+    console.log(Names, error);
+  if (error) return [];
+  return Names;
+}
