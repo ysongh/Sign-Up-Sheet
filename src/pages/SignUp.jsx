@@ -6,11 +6,17 @@ import { getNameByListId, addName } from '../supabase';
 
 const SignUp = () => {
   const { id } = useParams();
-  const [data, setData] = useState(['A1', 'B1', 'C1']);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    getNameByListId(id);
+    fetchNames();
   }, [])
+
+  const fetchNames = async () => {
+    const newNames = await getNameByListId(id);
+    newNames.push({ name: ""});
+    setData(newNames);
+  }
   
   const handleCellChange = (index, newValue) => {
     const newData = [...data];
@@ -33,7 +39,7 @@ const SignUp = () => {
             suppressContentEditableWarning
             onBlur={(e) => handleCellChange(index, e.target.textContent)}
           >
-            {d}
+            {d.name}
           </Box>
         ))}
       </Box>
