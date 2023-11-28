@@ -26,7 +26,7 @@ const SignUp = () => {
 
   return (
     <Container>
-      <Heading mb="5">Sign Up</Heading>
+      <Heading mt="3" mb="5">Sign Up</Heading>
       <Box flex>
         {data.map((d, index) => (
           <Box
@@ -43,7 +43,7 @@ const SignUp = () => {
           </Box>
         ))}
       </Box>
-      <Button onClick={() => addName(id, data[data.length - 1])}>
+      <Button onClick={() => addName(id, data[data.length - 1])} colorScheme="teal" mt="2">
         Add
       </Button>
     </Container>
