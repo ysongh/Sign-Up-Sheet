@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Container,
   Box,
@@ -13,8 +14,15 @@ import {
 import { addSignUp } from '../supabase';
 
 const SignupForm = () => {
+  const navigate = useNavigate();
+
   const [title, setTitle] = useState();
   const [description, setDescription] = useState('');
+
+  const createSignUp = async () => {
+    await addSignUp(title, description);
+    navigate("/");
+  }
 
   return (
     <Container>
@@ -42,7 +50,7 @@ const SignupForm = () => {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </FormControl>
-            <Button colorScheme="blue" onClick={() => addSignUp(title, description)}>
+            <Button colorScheme="blue" onClick={() => createSignUp()}>
               Create
             </Button>
           </VStack>
