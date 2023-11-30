@@ -41,7 +41,7 @@ const SignUpList = () => {
                 <Td>{item.description}</Td>
                 <Td>
                   <Button colorScheme="teal" size="sm" onClick={() => navigate(`/signup/${item.id}`)}>
-                    See More
+                    View
                   </Button>
                 </Td>
               </Tr>

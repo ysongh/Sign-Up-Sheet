@@ -43,7 +43,7 @@ const SignupForm = () => {
               />
             </FormControl>
             <Button colorScheme="blue" onClick={() => addSignUp(title, description)}>
-              Sign Up
+              Create
             </Button>
           </VStack>
         </form>
