@@ -21,9 +21,6 @@ const SignUpList = () => {
   return (
     <Container>
       <Box p={4}>
-        <Box mb={4}>
-          <h2>Title</h2>
-        </Box>
         <Table variant="simple">
           <Thead>
             <Tr>
