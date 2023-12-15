@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Box, Button, Heading } from '@chakra-ui/react';
+import { Container, Flex, Spacer, Box, Button, Heading } from '@chakra-ui/react';
 
 import { getNameByListId, addName } from '../supabase';
 
@@ -26,7 +26,13 @@ const SignUp = () => {
 
   return (
     <Container>
-      <Heading mt="3" mb="5">Sign Up</Heading>
+      <Flex>
+        <Heading mt="3" mb="5">Sign Up</Heading>
+        <Spacer></Spacer>
+        <Button colorScheme="teal" mt="4">
+          Share
+        </Button>
+      </Flex>
       <Box flex>
         {data.map((d, index) => (
           <Box
