@@ -24,12 +24,16 @@ const SignUp = () => {
     setData(newData);
   };
 
+  const copyLink = () => {
+    navigator.clipboard.writeText(`${window.location.origin}/signup/${id}/`);
+  }
+
   return (
     <Container>
       <Flex>
         <Heading mt="3" mb="5">Sign Up</Heading>
         <Spacer></Spacer>
-        <Button colorScheme="teal" mt="4">
+        <Button colorScheme="teal" mt="4" onClick={copyLink}>
           Share
         </Button>
       </Flex>
