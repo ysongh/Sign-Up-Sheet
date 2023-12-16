@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Flex, Spacer, Box, Button, Heading } from '@chakra-ui/react';
+import { Container, Flex, Spacer, Box, Tooltip, Button, Heading } from '@chakra-ui/react';
 
 import { getNameByListId, addName } from '../supabase';
 
 const SignUp = () => {
   const { id } = useParams();
   const [data, setData] = useState([]);
+  const [isCopy, setIsCopy] = useState(false);
 
   useEffect(() => {
     fetchNames();
@@ -26,6 +27,7 @@ const SignUp = () => {
 
   const copyLink = () => {
     navigator.clipboard.writeText(`${window.location.origin}/signup/${id}/`);
+    setIsCopy(true);
   }
 
   return (
@@ -33,9 +35,11 @@ const SignUp = () => {
       <Flex>
         <Heading mt="3" mb="5">Sign Up</Heading>
         <Spacer></Spacer>
-        <Button colorScheme="teal" mt="4" onClick={copyLink}>
-          Share
-        </Button>
+        <Tooltip label={isCopy ? "Copied" : "Copy"} closeOnClick={false}>
+          <Button colorScheme="teal" mt="4" onClick={copyLink}>
+            Share
+          </Button>
+        </Tooltip>
       </Flex>
       <Box flex>
         {data.map((d, index) => (
